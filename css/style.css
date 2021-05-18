@@ -44,7 +44,7 @@
 }
 
 :root {
-
+  --bg-checked: dodgerblue;
 }
 
 html {
@@ -69,6 +69,18 @@ body {
   padding-left: 20px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
 }
 
 .site-main {
@@ -175,10 +187,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   align-items: center;
 }
 
-.name-txt {
-  
-}
-
 .name-input {
   margin-left: 65px;
   padding: 9px 10px;
@@ -188,7 +196,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border: 0.5px solid transparent;
 }
 
-.gender-label {
+.gender-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -217,6 +225,52 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.gender-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #B1BFCD;
+  transition: opacity 0.3s ease;
+}
+
+.gender-label::before {
+  margin-right: 11px;
+  content: "";
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background-color: #F5F8F9;
+  background-image: url(/img/icon/man.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: background-color 0.3s ease;
+}
+
+.gender-label:hover {
+  opacity: 0.8;
+}
+
+.gender-label:active {
+  opacity: 0.6;
+}
+
+.gender-radio:checked + .gender-label::before {
+  border: 0.5px solid #aaa;
+  background-color: var(--bg-checked);
+}
+
+.famale-gender::before {
+  margin-right: 11px;
+  content: "";
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background-color: #F5F8F9;
+  background-image: url(/img/icon/woman.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .first-gender {
@@ -262,17 +316,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin-top: 10px;
 }
 
-.data-birdth__txt {
-  /* font-style: normal;
-  font-weight: normal;
-  font-size: 7.4089px;
-  line-height: 9px;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-  color: #373D40; */
-}
-
 .data-birdth__input {
   margin-left: 60px;
   width: 190px;
@@ -290,16 +333,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin-top: 10px;
 }
 
-.email-txt {
-  /* font-style: normal;
-  font-weight: normal;
-  font-size: 7.4089px;
-  line-height: 9px;
-  display: flex;
-  align-items: flex-end;
-  color: #373D40; */
-}
-
 .email-input {
   width: 190px;
 }
@@ -315,16 +348,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 190px;
 }
 
-.mobile-txt {
-  /* font-style: normal;
-  font-weight: normal;
-  font-size: 7.4089px;
-  line-height: 9px;
-  display: flex;
-  align-items: flex-end;
-  color: #373D40; */
-}
-
 .customer-id {
   display: flex;
   justify-content: space-between;
@@ -336,16 +359,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 190px;
 }
 
-.customer-txt {
-  /* font-style: normal;
-  font-weight: normal;
-  font-size: 7.4089px;
-  line-height: 9px;
-  display: flex;
-  align-items: flex-end;
-  color: #373D40; */
-}
-
 .membership {
   display: flex;
   justify-content: space-between;
@@ -353,15 +366,44 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin-top: 32px;
 }
 
-.membership-txt {
-  /* font-style: normal;
-  font-weight: normal;
-  font-size: 7.4089px;
-  line-height: 9px;
-  display: flex;
-  align-items: flex-end;
-  color: #373D40; */
+.membership-label {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.membership-label::before {
+  margin-right: 11px;
+  content: "";
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background-color: #C7C7C7;
+  background-image: url(/img/icon/radio.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  transition: background-color 0.3s ease,
+  opacity 0.3s ease;
+}
+
+.membership-input:checked + .membership-label::before {
+  border: 0.5px solid #aaa;
+  background-color: var(--bg-checked);
+}
+
+.membership-label:hover {
+  opacity: 0.8;
+}
+
+.membership-label:active {
+  opacity: 0.7;
+}
+
+.membership-label:focus {
+  opacity: 1;
+}
+
+
 
 .membership-wrapper {
   width: 190px;
@@ -372,10 +414,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .membership-wrapper label {
   font-style: normal;
   font-weight: normal;
-  font-size: 7.4089px;
+  font-size: 7.4px;
   line-height: 9px;
-  display: flex;
-  align-items: flex-end;
   color: #373D40;
 }
 
