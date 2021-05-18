@@ -9,6 +9,15 @@
 
 @font-face {
   font-family: 'Raleway';
+  src: url('/font/Raleway-Black.woff2') format('woff2'),
+      url('/font/Raleway-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Raleway';
   src: url('/font/Raleway-Medium.woff2') format('woff2'),
       url('/font/Raleway-Medium.woff') format('woff');
   font-weight: 500;
@@ -76,10 +85,6 @@ body {
   margin-top: 100px;
 }
 
-.site-left {
-
-}
-
 .site-main__inner {
   display: flex;
   justify-content: space-between;
@@ -90,7 +95,7 @@ body {
   margin: 0;
   padding: 0;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 900;
   font-size: 18px;
   line-height: 21px;
   text-align: center;
